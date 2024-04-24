@@ -4,7 +4,6 @@ from hexer import mHash
 from colorama import Fore, Style
 import multiprocessing
 from multiprocessing import Pool
-import win32api,win32con
 
 # =========================================================================================
 mmdrza = '''

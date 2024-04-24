@@ -3,7 +3,6 @@ from hexer import mHash
 from colorama import Fore
 from hdwallet import HDWallet
 from hexer import mHash
-import win32api,win32con
 from hdwallet.symbols import LTC as sym
 # =========================================================================================
 mmdrza = '''

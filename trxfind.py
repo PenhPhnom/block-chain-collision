@@ -4,7 +4,6 @@ from hexer import mHash
 from colorama import Fore, Style
 import multiprocessing
 from multiprocessing import Pool
-import win32api,win32con
 
 # =========================================================================================
 mmdrza = '''
@@ -47,7 +46,7 @@ def seek(r):
             f.write('\nPrivate Key = ' + str(priv))
             f.write('\n=========================================================\n')
             f.close()
-            win32api.MessageBox(0,"恭喜你碰撞TRX成功,记得打赏开发者和群里的难兄难弟","开心碰碰乐",win32con.MB_OK)                        
+            print("恭喜你碰撞BTC成功,记得打赏开发者哟^_^","感谢使用开心碰碰乐！")
             continue
         
 
