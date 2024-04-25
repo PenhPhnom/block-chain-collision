@@ -14,15 +14,17 @@ mmdrza = '''
 # ============================================================================================
 
 r = 1
+print(mmdrza)   
+print("            正在加载数据文件，请耐心等待...")
+fileBTC = "dogeaddr.txt"
+with open(fileBTC) as f :
+    add = f.read().split()
+    addoge = set(add)
+print("数据文件加载完成！","数据包大小为:",addoge.__sizeof__(),"B")
 cores =multiprocessing.cpu_count() - 1
 
 
 def seek(r) :
-    print(mmdrza)   
-    filedoge = "dogeaddr.txt"
-    with open(filedoge) as f :
-        add = f.read().split()
-        addoge = set(add)
     w = 0
     z = 0
     while True :

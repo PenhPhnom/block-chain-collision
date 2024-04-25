@@ -1,9 +1,7 @@
 import multiprocessing
 from hexer import mHash
-from colorama import Fore
 from hdwallet import HDWallet
 from hdwallet.symbols import BTC as SYMBOL2
-from hexer import mHash
 
 # =========================================================================================
 mmdrza = '''
@@ -11,19 +9,22 @@ mmdrza = '''
                          求天选之子打赏
             捐赠地址BTC:  33QZ45PtozQFpTWtHg3FCpromkPBYmwnMd  
             捐赠地址USDT/ETH等(ERC20):  0x5bB588177B2E91E5E66e84307841a0b2c18877b1  
+
+            BTC谜题:网址https://privatekeys.pw/puzzles/bitcoin-puzzle-tx
 '''
 # ============================================================================================
 
 r = 1
+print(mmdrza)   
+print("            正在加载数据文件，请耐心等待...")
+fileBTC = "btcaddr.txt"
+with open(fileBTC) as f :
+    add = f.read().split()
+    addbtc = set(add)
+print("数据文件加载完成！","数据包大小为:",addbtc.__sizeof__(),"B")
 cores =multiprocessing.cpu_count() - 1
 
-
 def seek(r) :
-    print(mmdrza)   
-    fileBTC = "btcaddr.txt"
-    with open(fileBTC) as f :
-        add = f.read().split()
-        addbtc = set(add)
     w = 0
     z = 0
     while True :
@@ -45,7 +46,6 @@ def seek(r) :
         z += 1
         # if btcadd  in addbtc or  btcadd1  in addbtc or btcadd2  in addbtc or btcadd3 in addbtc or btcadd4 in addbtc or btcadd5 in addbtc or btcadd6 in addbtc :
         if btcadd  in addbtc or btcadd1  in addbtc or btcadd3 in addbtc or btcadd6 in addbtc :
-
             w += 1
             f = open("result.txt" , "a")
             f.write('\nBTC PRIVATEKEY ======> ' + str(privBTC))
@@ -57,8 +57,9 @@ def seek(r) :
 seek(r)
 
 if __name__ == '__main__' :
+
     jobs = []
     for r in range(cores) :
-        p = multiprocessing.Process(target = seek , args = (r ,))
+        p = multiprocessing.Process(target = seek , args = (r,))
         jobs.append(p)
         p.start()

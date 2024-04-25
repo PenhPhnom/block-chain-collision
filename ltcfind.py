@@ -14,15 +14,17 @@ mmdrza = '''
 # ============================================================================================
 
 r = 1
+print(mmdrza)   
+print("            正在加载数据文件，请耐心等待...")
+fileBTC = "ltcaddr.txt"
+with open(fileBTC) as f :
+    add = f.read().split()
+    addltc = set(add)
+print("数据文件加载完成！","数据包大小为:",addltc.__sizeof__(),"B")
 cores =multiprocessing.cpu_count() - 1
 
 
 def seek(r) :
-    print(mmdrza)   
-    fileLTC = "ltcaddr.txt"
-    with open(fileLTC) as f :
-        add = f.read().split()
-        addltc = set(add)
     w = 0
     z = 0
     while True :

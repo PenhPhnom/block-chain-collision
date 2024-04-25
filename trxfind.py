@@ -15,17 +15,18 @@ mmdrza = '''
 # ============================================================================================
 
 r = 1
+print(mmdrza)   
+print("            正在加载数据文件，请耐心等待...")
+fileBTC = "trxaddr.txt"
+with open(fileBTC) as f :
+    add = f.read().split()
+    addTRX = set(add)
+print("数据文件加载完成！","数据包大小为:",addTRX.__sizeof__(),"B")
 cores =multiprocessing.cpu_count() - 1
 
 
 
 def seek(r):
-    print(mmdrza)
-    filename = "trxaddr.txt"
-    with open(filename) as f:
-        add = f.read().split()
-    add = set(add)
-    
     z = 1
     w = 0
     while True:
@@ -38,7 +39,7 @@ def seek(r):
         print('TrxTotalScan' , str(z) , str(addr),'私钥',str(priv),end='\r', flush=True)
         z += 1
         
-        if addr in add:            
+        if addr in addTRX:            
             w += 1
             z += 1
             f = open("result.txt", "a")
