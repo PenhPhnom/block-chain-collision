@@ -1,7 +1,8 @@
 from hdwallet import HDWallet
 from hdwallet.symbols import ETH as SYMBOL
 from hexer import mHash
-from colorama import Fore, Style
+from hexer import randKey
+from hexer import switch_case
 import multiprocessing
 from multiprocessing import Pool
 
@@ -29,8 +30,11 @@ cores =multiprocessing.cpu_count() - 1
 def seek(r):
     z = 1
     w = 0
-    while True:
-        hex64 = mHash()
+    puzzle = input("输入谜题编号设置范围(66~160):")
+    min,max = switch_case(puzzle)
+    while True :
+        # hex64 = mHash()#随机生成一个64位私钥
+        hex64 = randKey(min,max)#在一个取值范围内生成一个64位的私钥
         PRIVATE_KEY: str = hex64
         hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
         hdwallet.from_private_key(private_key=PRIVATE_KEY)
